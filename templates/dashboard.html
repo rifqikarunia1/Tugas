@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DBSCAN</title>
+    <link rel="stylesheet" href="templates/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/2.0.1/css/dataTables.dataTables.min.css">
+    <style>
+      body{
+        background: #eee;
+       }
+       
+       #side_nav{
+        background: #000;
+        min-width: 250px;
+        max-width: 250px;
+        transition: all 0.3s;
+       }
+       .content{
+          min-height: 100vh;
+          width: 100%;
+       }
+       hr.h-color{
+         background: #eee;
+       }
+       
+       .sidebar li.active{
+          background: #eee;
+          border-radius: 8px;
+       }
+       
+       .sidebar li.active a, .sidebar li.active a:hover {
+        color: #000;
+       }
+       .sidebar li a{
+        color: #fff;
+       }
+       
+       @media(max-width: 767px){
+        #side_nav{
+          margin-left: -250px;
+          position: absolute;
+          min-height: 100vh;
+          z-index: 1;
+       
+        }
+        #side_nav.active{
+          margin-left: 0;
+         }
+       }
+    </style>
+
+  </head>
+  <body>
+
+    <div class="main-container d-flex">
+      <div class="sidebar" id="side_nav">
+          <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
+              <h1 class="fs-4"><span class="bg-white text-dark rounded shadow px-2 me-2">TA2</span> <span
+                      class="text-white">Program</span></h1>
+              <button class="btn d-md-none d-block close-btn px-1 py-0 text-white"><i
+                      class="fal fa-stream"></i></button>
+          </div>
+
+          <ul class="list-unstyled px-2">
+              <li class="active"><a href="/" class="text-decoration-none px-3 py-2 d-block"><i
+                          class="fal fa-home"></i> Dashboard</a></li>
+              <li class=""><a href="/index" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-list"></i>
+                      Dataset</a></li>
+              <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between">
+                      <span><i class="fal fa-comment"></i> Messages</span>
+                      <span class="bg-dark rounded-pill text-white py-0 px-2">02</span>
+                  </a>
+              </li>
+              <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i
+                          class="fal fa-envelope-open-text"></i> Services</a></li>
+              <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-users"></i>
+                      Customers</a></li>
+          </ul>
+          <hr class="h-color mx-2">
+
+          <ul class="list-unstyled px-2">
+              <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-bars"></i>
+                      Settings</a></li>
+              <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-bell"></i>
+                      Notifications</a></li>
+
+          </ul>
+
+      </div>
+      <div class="content">
+          <nav class="navbar navbar-expand-md navbar-light bg-light">
+              <div class="container-fluid">
+                  <div class="d-flex justify-content-between d-md-none d-block">
+                   <button class="btn px-1 py-0 open-btn me-2"><i class="fal fa-stream"></i></button>
+                      <a class="navbar-brand fs-4" href="#"><span class="bg-dark rounded px-2 py-0 text-white">CL</span></a>
+                     
+                  </div>
+                  <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                      aria-expanded="false" aria-label="Toggle navigation">
+                      <i class="fal fa-bars"></i>
+                  </button>
+                  <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                      <ul class="navbar-nav mb-2 mb-lg-0">
+                          <li class="nav-item">
+                              <a class="nav-link active" aria-current="page" href="#">Profile</a>
+                          </li>
+
+                      </ul>
+
+                  </div>
+              </div>
+          </nav>
+
+          <div class="dashboard-content px-3 pt-4">
+            <div class="hero-container" id="hero-sec">
+                <div class="container-fluid ">
+                <div class="row d-flex">
+                  <div class="col align-middle">
+                    <div class="px-2 py-2">
+                    <img src="https://img.freepik.com/free-vector/happy-freelancer-with-computer-home-young-man-sitting-armchair-using-laptop-chatting-online-smiling-vector-illustration-distance-work-online-learning-freelance_74855-8401.jpg?w=900&t=st=1667037491~exp=1667038091~hmac=7c71ea8afc8f3cc8065c5ccc05d105e3c8a7b76f0133016cb210a7882dc19611" class="img-fluid" alt="...">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="px-5 py-5 mt-5">
+                      <div class="px-2 py-2 align-middle">
+                      <h4>DBSCAN</h4>
+                      <p> Abstrak−Algoritma DBSCAN (Density-Based Spatial Clustering of Applications with Noise) merupakan salah satu algoritma clustering yang berbasis numerik, pada algoritma ini digunakan data numerik sebagai pengujiannya.</p>
+                      </div>
+                      <div class="px-2 py-2">
+                        <button type="button" class="btn btn-outline-primary">Checkout Our Courses</button>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+
+    
+  </body>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <script src="{{url_for('static',filename='js/datatables.min.js')}}"></script>
+  <script src="https://cdn.datatables.net/v/dt/dt-2.0.1/datatables.min.js"></script>
+  <script>
+
+    
+
+  $(document).ready( function () {
+    $('#myTable').DataTable();
+  } );
+  </script>
+  
+</html>
